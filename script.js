@@ -105,12 +105,12 @@ function renderCatalog() {
 function updateStats() {
     const totalItems = items.length;
     const totalFragmentTypes = Object.keys(fragmentTypes).length;
-    
+
     const totalItemsElement = document.getElementById('total-items');
     const totalFragmentsElement = document.getElementById('total-fragments');
     const avgFragmentsElement = document.getElementById('avg-fragments');
     const itemCountElement = document.getElementById('item-count');
-    
+
     if (totalItemsElement) totalItemsElement.textContent = totalItems;
     if (totalFragmentsElement) totalFragmentsElement.textContent = totalFragmentTypes;
     if (avgFragmentsElement) avgFragmentsElement.textContent = totalFragmentTypes.toFixed(1);
@@ -118,7 +118,28 @@ function updateStats() {
 }
 
 // Inicializar a aplicação quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     renderCatalog();
     updateStats();
+});
+
+// Menu Mobile Toggle
+document.addEventListener('DOMContentLoaded', function () {
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function () {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link (mobile)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+    }
 });
