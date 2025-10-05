@@ -1,4 +1,4 @@
-# Catálogo de Fragmentos - Exordion
+# 💎 Catálogo de Fragmentos - Exordion
 
 Um catálogo interativo para visualizar os fragmentos obtidos ao quebrar itens no servidor Exordion. Interface web moderna com design responsivo e dados organizados dinamicamente.
 
